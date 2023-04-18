@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">REAL TECH</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Detalhe</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Pagina Home</h1>
+      <% var texto = "Trabalhando com EJS"; %>
+      <p><%= texto %></p>
+    </div>
+    <hr />
+    <div>
+      <h3>Lista de Usuarios no Banco</h3>
+      <ul>
+        <%for (var chave in clientes){ %>
+        <li><%= clientes[chave].nome %> - <%= clientes[chave].email %></li>
+        <% } %>
+      </ul>
+    </div>
+
+    <br />
+    <hr />
+    <h3>Cadastro de Usuario</h3>
+    <div class="container">
+      <form action="/" method="post">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input
+            type="text"
+            name="nome"
+            class="form-control"
+            id="nome"
+            value="<%= dados.nome %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="email"
+            value="<%= dados.email %>"
+          />
+        </div>
+        <button type="submit" class="btn btn-default">Enviar</button>
+      </form>
+    </div>
+    <% if(erros){ %>
+    <ul>
+      <% for (var k in erros){ %>
+      <li><%= erros[k].msg %></li>
+      <% } %>
+    </ul>
+    <% } %>
+  </body>
+</html>
